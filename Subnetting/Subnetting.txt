@@ -1,0 +1,117 @@
+Gebruikers - Clients:
+
+Gasten: VLAN - 10
+Input: 192.168.10.0/24
+Subnet Mask: 255.255.255.0
+Wildcard Mask: 0.0.0.255
+Network Address: 192.168.10.0
+Broadcast Address: 192.168.10.255
+First Usable IP: 192.168.10.1
+Last Usable IP: 192.168.10.254
+Range of Usable IPs: 192.168.10.1 - 192.168.10.254
+
+IoT: VLAN - 15
+Input: 192.168.11.0/24
+Subnet Mask: 255.255.255.0
+Wildcard Mask: 0.0.0.255
+Network Address: 192.168.11.0
+Broadcast Address: 192.168.11.255
+First Usable IP: 192.168.11.1
+Last Usable IP: 192.168.11.254
+Range of Usable IPs: 192.168.11.1 - 192.168.11.254
+
+Administratie: VLAN - 20
+Input: 192.168.12.0/26
+Subnet Mask: 255.255.255.192
+Wildcard Mask: 0.0.0.63
+Network Address: 192.168.12.0
+Broadcast Address: 192.168.12.63
+First Usable IP: 192.168.12.1
+Last Usable IP: 192.168.12.62
+Range of Usable IPs: 192.168.12.1 - 192.168.12.62
+
+Grafisch-Design: VLAN - 25
+Input: 192.168.12.64/26
+Subnet Mask: 255.255.255.192
+Wildcard Mask: 0.0.0.63
+Network Address: 192.168.12.64
+Broadcast Address: 192.168.12.127
+First Usable IP: 192.168.12.65
+Last Usable IP: 192.168.12.126
+Range of Usable IPs: 192.168.12.65 - 192.168.12.126
+
+Editors: VLAN - 30
+Input: 192.168.12.128/28
+Subnet Mask: 255.255.255.240
+Wildcard Mask: 0.0.0.15
+Network Address: 192.168.12.128
+Broadcast Address: 192.168.12.143
+First Usable IP: 192.168.12.129
+Last Usable IP: 192.168.12.142
+Range of Usable IPs: 192.168.12.129 - 192.168.12.142
+
+Development: VLAN - 35
+Input: 192.168.12.144/28
+Subnet Mask: 255.255.255.240
+Wildcard Mask: 0.0.0.15
+Network Address: 192.168.12.144
+Broadcast Address: 192.168.12.159
+First Usable IP: 192.168.12.145
+Last Usable IP: 192.168.12.158
+Range of Usable IPs: 192.168.12.145 - 192.168.12.158
+
+
+Kritieke toestellen:
+
+Management: VLAN - 40
+Input: 172.16.10.0/26
+Subnet Mask: 255.255.255.192
+Wildcard Mask: 0.0.0.63
+Network Address: 172.16.10.0
+Broadcast Address: 172.16.10.63
+First Usable IP: 172.16.10.1
+Last Usable IP: 172.16.10.62
+Range of Usable IPs: 172.16.10.1 - 172.16.10.62
+
+Servers: VLAN - 50
+Input: 172.16.10.64/26
+Subnet Mask: 255.255.255.192
+Wildcard Mask: 0.0.0.63
+Network Address: 172.16.10.64
+Broadcast Address: 172.16.10.127
+First Usable IP: 172.16.10.65
+Last Usable IP: 172.16.10.126
+Range of Usable IPs: 172.16.10.65 - 172.16.10.126
+
+VoIP: VLAN - 60
+Input: 172.16.10.128/27
+Subnet Mask: 255.255.255.224
+Wildcard Mask: 0.0.0.31
+Network Address: 172.16.10.128
+Broadcast Address: 172.16.10.159
+First Usable IP: 172.16.10.129
+Last Usable IP: 172.16.10.158
+Range of Usable IPs: 172.16.10.129 - 172.16.10.158
+
+Printers: VLAN - 70
+Input: 172.16.10.160/29
+Subnet Mask: 255.255.255.248
+Wildcard Mask: 0.0.0.7
+Network Address: 172.16.10.160
+Broadcast Address: 172.16.10.167
+First Usable IP: 172.16.10.161
+Last Usable IP: 172.16.10.166
+Range of Usable IPs: 172.16.10.161 - 172.16.10.166
+
+BACKUP: VLAN - 80
+Input: 172.16.10.168/30
+Subnet Mask: 255.255.255.252
+Wildcard Mask: 0.0.0.3
+Network Address: 172.16.10.168
+Broadcast Address: 172.16.10.171
+First Usable IP: 172.16.10.169
+Last Usable IP: 172.16.10.170
+Range of Usable IPs: 172.16.10.169 - 172.16.10.170
+
+
+

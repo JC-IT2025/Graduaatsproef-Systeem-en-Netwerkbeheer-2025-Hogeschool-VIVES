@@ -1,0 +1,283 @@
+!Current Configuration:
+!
+!System Description "HPE OfficeConnect Switch 1920S 24G 2SFP PPoE+ (185W) JL384A, PD.02.19, Linux 3.6.5-375bd0e8, U-Boot 2012.10-00118-g3773021 (Oct 11 2016 - 15:39:54)"
+!System Software Version "PD.02.19"
+!System Up Time          "0 days 1 hrs 26 mins 49 secs"
+!Additional Packages     HPE QOS,HPE IPv6 Management,HPE Routing
+!Current SNTP Synchronized Time: SNTP Client Mode Is Disabled
+!
+network protocol none
+network parms 172.16.10.16 255.255.255.192 172.16.10.1
+vlan database
+vlan 10,15,20,25,30,35,40,50,60,70,80,99
+vlan name 10 "VLAN10-Gasten"
+vlan name 15 "VLAN15-IoT"
+vlan name 20 "VLAN20-Administratie"
+vlan name 25 "VLAN25-Grafisch-Design"
+vlan name 30 "VLAN30-Editors"
+vlan name 35 "VLAN35-Development"
+vlan name 40 "VLAN40-Management"
+vlan name 50 "VLAN50-Servers"
+vlan name 60 "VLAN60-VoIP"
+vlan name 70 "VLAN70-Printers"
+vlan name 80 "VLAN80-Backup"
+vlan name 99 "VLAN99-Parking_Lot"
+exit
+network mgmt_vlan 40
+network mgmt_port 24
+no ip http server
+ip http session soft-timeout 10
+ip http secure-server
+ip http secure-session maxsessions 2
+ip http secure-session hard-timeout 1
+ip http secure-session soft-timeout 10
+configure
+time-range Schedule-1
+exit
+time-range Schedule-2
+exit
+dos-control icmpv4
+username "admin" password 8fb58a3837a981efcc125d401b45630903c7252a80f3bf80b3038c272d962e7ccf267fe60fa98e88b5e107bfdf43e56ca9b57c48c00b8fed6665e312a1d5f410 level 15 encrypted
+no username guest
+poe power management 1 static
+line console
+exit
+line telnet
+exit
+line ssh
+exit
+spanning-tree mode stp
+port-channel name TRK 1 TRK-Core-Switch
+port-channel name TRK 2 TRK-B-C-S
+port-channel name TRK 3 TRK-TO-AP
+snmp-server sysname "S-VAM"
+snmp-server location "IT"
+!
+snmp-server group "Public" v1 read "DefaultView"
+snmp-server group "Public" v2 read "DefaultView"
+snmp-server community-group "Public" "Public" ipaddress 172.16.10.59
+no snmp-server community "public"
+snmp-server host 172.16.10.59 traps version 2 "Public"
+interface 1
+no port lacpmode
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 10,15,20,25,30,35,40,50,60,70,80,99
+vlan tagging 10,15,20,25,30,35,40,50,60,70,80,99
+no isdp enable
+no poe
+exit
+interface 2
+no port lacpmode
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 10,15,20,25,30,35,40,50,60,70,80,99
+vlan tagging 10,15,20,25,30,35,40,50,60,70,80,99
+no isdp enable
+no poe
+exit
+interface 3
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+no poe
+exit
+interface 4
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+no poe
+exit
+interface 5
+vlan pvid 70
+vlan participation exclude 1,99
+vlan participation include 70
+no isdp enable
+no poe
+exit
+interface 6
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+no poe
+exit
+interface 7
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+no poe
+exit
+interface 8
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+no poe
+exit
+interface 9
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+no poe
+exit
+interface 10
+vlan pvid 99
+vlan participation exclude 1,40
+vlan participation include 99
+no isdp enable
+poe priority Crit
+poe power limit user-defined
+poe power limit user-defined 13000
+exit
+interface 11
+voice vlan 60
+voice vlan data priority untrust
+voice vlan dscp 46
+vlan pvid 60
+vlan participation exclude 1,50
+vlan participation include 60
+no isdp enable
+poe priority High
+poe power limit user-defined
+poe power limit user-defined 8000
+exit
+interface 12
+vlan pvid 40
+vlan participation exclude 1,50,70,80,99
+vlan participation include 10,15,20,25,30,35,40,60
+vlan tagging 10,15,20,25,30,35,60
+no isdp enable
+poe priority Crit
+poe power limit user-defined
+poe power limit user-defined 13000
+exit
+interface 13
+vlan pvid 50
+vlan participation exclude 1,99
+vlan participation include 50
+no isdp enable
+exit
+interface 14
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+exit
+interface 15
+vlan pvid 50
+vlan participation exclude 1,99
+vlan participation include 50
+no isdp enable
+exit
+interface 16
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+exit
+interface 17
+vlan pvid 50
+vlan participation exclude 1,99
+vlan participation include 50
+no isdp enable
+exit
+interface 18
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+exit
+interface 19
+vlan pvid 50
+vlan participation exclude 1,99
+vlan participation include 50
+no isdp enable
+exit
+interface 20
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+exit
+interface 21
+vlan pvid 50
+vlan participation exclude 1,99
+vlan participation include 50
+no isdp enable
+exit
+interface 22
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+exit
+interface 23
+vlan pvid 50
+vlan participation exclude 1,99
+vlan participation include 50
+no isdp enable
+exit
+interface 24
+vlan pvid 40
+vlan participation exclude 1
+vlan participation include 40
+no isdp enable
+exit
+interface 25
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+exit
+interface 26
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+no isdp enable
+exit
+interface TRK 1
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+exit
+interface TRK 2
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+exit
+interface TRK 3
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+exit
+interface TRK 4
+vlan pvid 99
+vlan participation exclude 1
+vlan participation include 99
+exit
+interface TRK 5
+vlan pvid 99
+vlan participation include 99
+vlan tagging 1
+exit
+interface TRK 6
+vlan pvid 99
+vlan participation include 99
+vlan tagging 1
+exit
+interface TRK 7
+vlan pvid 99
+vlan participation include 99
+vlan tagging 1
+exit
+interface TRK 8
+vlan pvid 99
+vlan participation include 99
+vlan tagging 1
+exit
+exit

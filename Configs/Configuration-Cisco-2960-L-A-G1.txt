@@ -1,0 +1,191 @@
+Building configuration...
+
+Current configuration : 5241 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname SW-A-G1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+no ip domain-lookup
+!
+!
+crypto pki trustpoint TP-self-signed-2756036736
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2756036736
+ revocation-check none
+ rsakeypair TP-self-signed-2756036736
+!
+!
+crypto pki certificate chain TP-self-signed-2756036736
+ certificate self-signed 01
+  30820240 308201A9 A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 32373536 30333637 3336301E 170D3933 30333031 30303031
+  34385A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 37353630
+  33363733 3630819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100BCD4 9F9E2F80 F9FE0F5E 94E4823D 11A395CA A38F7B15 8B0AEAB7 012A9D7C
+  330EA4F5 2D1ECF78 D56B7955 506E0F07 370D7DD8 9CB2ABC9 9E358657 8C1C26A3
+  E0D5150D 34C40F96 DCC4C14A 9E2DC39C 1250AEA3 D98939C7 BB562BD4 2FE19C03
+  0C76A98E 877CCDC4 3F12046C 1426C5DC 5A0DC6C9 CB9FCA97 0271C7CC 5D1ACC38
+  BFE30203 010001A3 68306630 0F060355 1D130101 FF040530 030101FF 30130603
+  551D1104 0C300A82 0853572D 412D4731 2E301F06 03551D23 04183016 80145617
+  AA28E76E 21859D0F 1E274F54 E55FC77C 4CE6301D 0603551D 0E041604 145617AA
+  28E76E21 859D0F1E 274F54E5 5FC77C4C E6300D06 092A8648 86F70D01 01040500
+  03818100 12DB6465 6C913643 3D193433 42050B99 6BEF7D1C 28D9D4DE 37AC0344
+  CB961334 029F71CC 3B4D7C56 43CCCB58 9AE814E8 3F3F12AC C1C5A235 DF46FBFF
+  3FE18D70 D95D3508 AB201C39 1B949B79 6EE78F7D E2330759 77F584B1 7CE17014
+  B551F1C5 9465C780 CFF74ED9 A36EF3BA DC6544B5 F65C1C07 340B6B2B D764CFA6 260E5CF3
+  quit
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+interface Port-channel1
+ switchport trunk allowed vlan 20,25,40
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ switchport trunk allowed vlan 20,25,40
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+ switchport access vlan 25
+ switchport mode access
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+ switchport trunk allowed vlan 20,25,40
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet0/1
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 20,25,40
+ switchport mode trunk
+ spanning-tree portfast trunk
+!
+interface GigabitEthernet0/2
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 20,25,40
+ switchport mode trunk
+ spanning-tree portfast trunk
+!
+interface Vlan1
+ ip address 192.168.0.11 255.255.255.0
+!
+interface Vlan40
+ ip address 172.16.10.14 255.255.255.192
+!
+ip default-gateway 172.16.10.1
+ip http server
+ip http secure-server
+ip sla enable reaction-alerts
+snmp-server community public RO
+snmp-server community Public RO
+snmp-server location SNBCV - RACK 1 - ACCESS L
+snmp-server contact jarnocardon@snbcv.local
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps tty
+snmp-server enable traps cluster
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps rep
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps dot1x auth-fail-vlan guest-vlan no-auth-fail-vlan no-guest-vlan
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps power-ethernet group 1
+snmp-server enable traps power-ethernet police
+snmp-server enable traps fru-ctrl
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps energywise
+snmp-server enable traps rtr
+snmp-server enable traps vstack
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps mac-notification change move threshold
+snmp-server enable traps vlan-membership
+snmp-server enable traps errdisable
+snmp-server host 135.236.98.180 version 2c public
+banner motd ^CAuthorized access only^C
+!
+line con 0
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+end
